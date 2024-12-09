@@ -2,56 +2,60 @@
 <html>
 <head>
     <style>
-        /* Style for the body to make the site fully cover the page */
+        /* Style for the body to make it cover the full page with a white background */
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background-color: white;
         }
 
-        /* Full-page iframe for the main content */
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* Style for the popup button as a small dot */
+        /* Style for the popup buttons as small dots */
         .popup-button {
             position: fixed;
             bottom: 10px;
-            left: 10px;
-            width: 20px;
-            height: 20px;
+            width: 15px;
+            height: 15px;
             background-color: #007bff;
             border: none;
             border-radius: 50%;
             cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            margin-right: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        /* Hover effect for the button */
+        /* Positioning the first button on the left */
+        #button1 {
+            left: 10px;
+        }
+
+        /* Positioning the second button next to the first button */
+        #button2 {
+            left: 35px;
+        }
+
+        /* Hover effect for the buttons */
         .popup-button:hover {
             background-color: #0056b3;
         }
     </style>
     <script>
-        /* Function to open the popup */
-        function openPopup(url) {
-            window.open(url, "_blank", "width=800,height=600,scrollbars=yes,resizable=yes");
+        /* Function to open a full-size window */
+        function openFullSize(url) {
+            window.open(url, "_blank");
+        }
+
+        /* Function to open a small window at the bottom-left corner */
+        function openSmallPopup(url) {
+            window.open(url, "_blank", "width=400,height=300,left=0,bottom=0,scrollbars=yes,resizable=yes");
         }
     </script>
 </head>
 <body>
-    <!-- Main content displayed in a full-page iframe -->
-    <iframe src="http://172.16.64.242/"></iframe>
 
-    <!-- Popup button as a small dot -->
-    <button class="popup-button" onclick="openPopup('https://chat.openai.com/')"></button>
+    <!-- Popup buttons -->
+    <button id="button1" class="popup-button" onclick="openFullSize('http://172.16.64.242/')"></button>
+    <button id="button2" class="popup-button" onclick="openSmallPopup('https://chat.openai.com')"></button>
+
 </body>
 </html>
